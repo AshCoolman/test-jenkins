@@ -20,7 +20,8 @@ pipeline {
     post {
         always {
             sh 'ls'
-            archiveArtifacts artifacts: '*report*.html', fingerprint: true
+            archiveArtifacts artifacts: 'build/**/*.html', fingerprint: true
+
         }
     }
 }
