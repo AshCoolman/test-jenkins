@@ -26,12 +26,12 @@ pipeline {
 
     post {
         always {
-            sh 'ls'
+            sh 'ls -l'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
             sh 'pwd'
             sh 'pwd && cd build'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
-            sh 'ls'
+            sh 'ls -l'
             sh 'cd build/gendir'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
 
