@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+            sh 'mkdir -p build/gendir'
             sh 'echo "Report 1" > report 1.html'
             sh 'echo "(Report 1 temp)" > report 1.tmp'
             sh 'echo "Report 2" > build/report 2.html'
