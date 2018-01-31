@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+		sh 'echo "test" > generate.html'
+		sh 'echo "DONE"'
             }
         }
     }
