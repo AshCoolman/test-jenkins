@@ -12,13 +12,14 @@ pipeline {
             sh 'echo "Temp 2" > build/temp 2.html'
             sh 'echo "Temp 3" > build/gendir/temp 3.html'
             sh 'echo "DONE"'
+            sh 'ls'
             }
         }
     }
 
     post {
         always {
-            archiveArtifacts artifacts: '**/report*.html', fingerprint: true
+            archiveArtifacts artifacts: 'build/**/report*.html', fingerprint: true
         }
     }
 }
