@@ -3,9 +3,15 @@ pipeline {
     stages {
         stage('build') {
             steps {
-		sh 'echo "test" > generate.html'
-		sh 'echo "DONE"'
+            sh 'echo "test" > generate.html'
+            sh 'echo "DONE"'
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'generate.html', fingerprint: true
         }
     }
 }
