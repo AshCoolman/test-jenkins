@@ -19,14 +19,14 @@ pipeline {
             sh 'echo "Temp 2" > build/temp 2.html'
             sh 'echo "Temp 3" > build/gendir/temp 3.html'
             sh 'echo "DONE"'
-            sh 'ls'
             }
         }
     }
 
     post {
         always {
-            sh 'ls -l'
+            sh 'tree -d'
+            sh 'ls build -l'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
             sh 'pwd'
             sh 'pwd && cd build'
