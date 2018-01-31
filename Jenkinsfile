@@ -21,6 +21,10 @@ pipeline {
         always {
             sh 'ls'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
+            sh 'cd build'
+            archiveArtifacts artifacts: '**/*.html', fingerprint: true
+            sh 'cd gendir'
+            archiveArtifacts artifacts: '**/*.html', fingerprint: true
 
         }
     }
