@@ -28,12 +28,6 @@ pipeline {
             sh 'ls -l'
             sh 'ls build -l'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
-            sh 'pwd'
-            sh 'pwd && cd build'
-            archiveArtifacts artifacts: '**/*.html', fingerprint: true
-            sh 'ls -l'
-            sh 'cd build/gendir'
-            archiveArtifacts artifacts: '**/*.html', fingerprint: true
 
         }
     }
