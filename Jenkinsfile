@@ -3,9 +3,11 @@ pipeline {
     stages {
 
         stage('cleanup') {
-            deleteDir()
+            steps {
+                deleteDir()
+            }
         }
-        
+
         stage('build') {
             steps {
             sh 'mkdir -p build/gendir'
