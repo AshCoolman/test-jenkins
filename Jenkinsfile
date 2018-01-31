@@ -25,7 +25,7 @@ pipeline {
 
     post {
         always {
-            sh 'tree -d'
+            sh 'ls -l'
             sh 'ls build -l'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
             sh 'pwd'
