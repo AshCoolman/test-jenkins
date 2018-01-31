@@ -1,6 +1,11 @@
 pipeline {
     agent { docker 'maven:3.3.3' }
     stages {
+
+        stage('cleanup') {
+            deleteDir()
+        }
+        
         stage('build') {
             steps {
             sh 'mkdir -p build/gendir'
@@ -21,8 +26,8 @@ pipeline {
         always {
             sh 'ls'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
-            sh 'ls'
-            sh 'cd build'
+            sh 'pwd'
+            sh 'pwd && cd build'
             archiveArtifacts artifacts: '**/*.html', fingerprint: true
             sh 'ls'
             sh 'cd build/gendir'
